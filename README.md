@@ -26,7 +26,6 @@ They are rule groups that are independent from each other.
 # Realize which mechanisms are not _independent_!
 * _function call_ depends on _this rules_ and creates a new _scope_ object which can become a _closure_.
 * _closures_ depend on _lexical scoping_ and _functions are objects_
-* _object creation_ uses _function call_.
 * _async/await_ depends on _promises_ and _generators_.
 
 ### Separate compile-time rules from run-time rules!
@@ -34,9 +33,11 @@ They are rule groups that are independent from each other.
 * _'this' binding_: run-time
 * _functions are objects_: compile-time
 * _property rules_: run-time
+* _promises_: run-time
+* _generators_: run-time
 
 ### Separate the synchronous mechanisms from the asynchronous mechanisms!
-_Promises_ are asynchronous mechanisms the other ones are synchronous mechanisms.
+_Promises_ and _generators_ are asynchronous mechanisms the other ones are synchronous mechanisms.
 
 ### Separate application defined objects from the engine-internal ones!
 * _scope_ objects are engine internal objects.
