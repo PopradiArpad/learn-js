@@ -1,0 +1,15 @@
+{
+  "name": "learn-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "arguments.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Poprádi Árpád <pa@popradiarpad.eu> (http://popradiarpad.eu/)",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "4.17.4"
+  }
+}
