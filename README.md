@@ -61,14 +61,16 @@ That means
 __A _closure_ is a scope kept accessible even after its creator function call is finished.__ It can be created only by a scope from that a function gets _somehow_ out and that function use __identifiers (not theirs values!)__ from the creator scope.
 __The mechanism _closure_ is a consequence of _lexical scoping_ and _functions are objects_.__
 
-## The four rules of _this binding_
-Preface: The value of 'this' is completely determined at the call-site in run-time, and has nothing to do with the compile time also with _lexical scoping_. That means __the value of 'this' can not be known without seeing the call-site__.
+## The five rules of _this binding_
+Preface: __Except the _arrow function rule_ __ the value of 'this' is completely determined at the call-site in run-time, and has nothing to do with the compile time also with _lexical scoping_. That means __the value of 'this' can not be known without seeing the call-site__.
 
 The coming rules goes in declining precedence.
 1. _new rule_: A function call after 'new' gets the newly created object as 'this'
 2. _explicit rule_: A function called with _apply_, _call_, or _bind_ has bound its 'this' to the given object. A bound with _bind_ is not to rebound.
 3. _implicit rule_: A function call in the form obj.someFunction() has its 'this' bound to obj.
 4. _default rule_: All other cases (e.g someFunction() ) means that 'this' is set to undefined in stric mode or the global object in non-stric mode.
+5. _arrow function rule_: 'this' within an arrow function is fixed to the value of 'this' in the arrow function creation context.
+Precedence?
 
 ## Property rules
 _Property rules_ are about properties on an _object_ (i.e qualified identifiers), have nothing to do with finding an unqualified identifier, which is the _lexical scope_

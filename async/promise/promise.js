@@ -15,3 +15,7 @@ const resolveLater = promisify((v, cb) => {
 let p = resolveLater(1);
 p.then(v => console.log(`resolved 1 ${v}`));
 p.then(v => console.log(`resolved 2 ${v}`));
+
+//Promise is like IO Monad
+// >>= :: (Monad m) -> m a -> (a -> m b) -> m b
+//then :: Promise a -> (a->b) -> Promise b
