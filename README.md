@@ -1,6 +1,6 @@
 # How to learn JavaScript?
 
-### Learn the mechanisms of the language not concepts...
+### Concentrate on the mechanisms of the language not concepts...
 Learn by doing and trying what the Engine does as it compiles and executes some elementary code. It helps extremely to get away from the syntax and think about the mechanisms, what they need and how they are related. All this without any syntax. You must learn first the mechanisms than the expression of that: the syntax.
 
 ### ...and not syntax
@@ -267,3 +267,10 @@ The prototype object of ```Func``` is referenced by ```Func.prototype``` which r
 
 ## async/await
 It combines _generators_ and _promises_ in a mechanism, whose syntax hides the generator iterating completely.
+
+
+## The tree pillars of JavaScript
+
+* Reactor pattern
+* Prototypal inheritence
+* Functional programming
