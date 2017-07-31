@@ -15,7 +15,7 @@ From 2. and 3. and 4. follow
 From 2. and 3. follow
   * Each function is automatically parallizable.
 
-### Problems with Haskell
+### Problems with Functional Programming only (Haskell)
 * Missing story-telling capability. The description of the goal of the app, the main players, roles, interactions are much more natural in OOP.
 * Discouraging academic language.
 * Forcing to think in the type system even if its not useful. It's like the forced two layer thinking of classical OOP languages where you need a class to have an object just for the sake of the language not by a the necessity of the domain.
@@ -109,7 +109,32 @@ That with the 'new' keyword. Avoid it if you can.
 
 
 ## Abstractions
-'Saving a little bit of typing is not a good reason for an abstraction.
-Only abstract to solve bugs not because it looks better.
-'
+'Saving a little bit of typing is not a good reason for an abstraction.'
+
 Sebastian Markbåge
+
+
+'Only abstract to solve bugs not because it looks better.'
+
+Sebastian Markbåge
+
+
+# Software development
+is all about
+  * the goal: Discover the __domain__: what should support the system and whom?
+  * the realization which is all about
+    * to minimize work: __reuse__
+    * to ensure its correctness: __verification__
+
+#### For reuse and verification is needed
+
+* __decoupling__: have as less dependency as possible.
+* __explicitness__: see all dependencies.
+
+Reuse and verification must commutate:
+* the reuse must be verifiable
+* the verification must be reusable
+
+Decouple from everything you can:
+* decouple from implementation: 'Programm again interfaces not again implementations'
+* decouple input data from any function execution: make input immutable

@@ -23,13 +23,3 @@ Function.prototype.partialApply = function partialApply(...rest1) {
 
 let sum1_2 = sum.partialApply(1,2);
 console.assert(sum1_2(3,4) === 10);
-
-
-//Currying is the partial application when the resulting function
-//has only one argument
-Function.prototype.curry = function partialApply(...rest1) {
-  return (arg) => this.apply(null,rest1.concat(arg));
-}
-
-let sum1_2Curryied = sum.curry(1,2);
-console.assert(sum1_2Curryied(3) === 6);
