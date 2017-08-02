@@ -54,14 +54,15 @@ console.assert(_.isEqual(fp.map(parseInt)(['6', '8', '10']), [6, 8, 10]));
 //  why this?
 //f(alg_extention1)(g(alg_extention2)(x))
 //
+//Currying allows to set the arguments of a function call in more steps.
 //Currying is a function transformation
 //where the result function has one argument
+//(or simple less arguments then the original function) 
 //and returns another curried function and so on
 //until the last function which returns the value of the original function
 //with all the substitued arguments.
 //
 //The currying keeps the original argument order.
-//Therefore currying can be made only one way.
 //
 //Currying is a syntactic sugar
 //to spare a anonymous wrapper functions.
@@ -75,8 +76,8 @@ console.assert(_.isEqual(fp.map(parseInt)(['6', '8', '10']), [6, 8, 10]));
 //Both use closures.
 //But the semantic is totally different:
 //Partial application set some arguments, currying doesn't.
-//Partial application can be made in countless way if the partial set arguments can be set
-//in countless way.Currying can be made only in one way.
+//Partial application might not keep the argument order.
+//Currying keeps the argument order.
 //
 //What is it good for?
 //-------------------
@@ -168,6 +169,7 @@ console.log('----------');
 
 
 //Formulate this string processing with fp
+//----------------------------------------
 const encodeURIComponent = string => string;
 
 const toSlug = input =>

@@ -1,9 +1,16 @@
+# The tree pillars of JavaScript
+
+* Reactor pattern
+* Prototypal inheritance
+* Functional programming
+
+
 # How to learn JavaScript?
 
 ### Concentrate on the mechanisms of the language not concepts...
 Learn by doing and trying what the Engine does as it compiles and executes some elementary code. It helps extremely to get away from the syntax and think about the mechanisms, what they need and how they are related. All this without any syntax. You must learn first the mechanisms than the expression of that: the syntax.
 
-### ...and not syntax
+### ...and not on the syntax
 Because
 * there are more syntaxes to achieve the same thing
 * you can get a wrong assumption what happens under the syntax.
@@ -53,13 +60,50 @@ Scope is a visibility area within a code block. (Functions are objectified block
 ## Lexical scoping
 __An unqualified identifier is visible in its defining scope and in the scopes created within its defining scope.__
 That means
-* basically scopes are visibly, the visibility of theirs identifiers is only a consequence.
+* basically the scopes are visible, the visibility of theirs identifiers is only a consequence.
 * the visibility of the scopes depends only on the declaration time arrangement of the scopes.
 * the value of an unqualified identifier (__except 'this'!__) is determinable by code reading (of course the result can be _value of another identifier_).
 
 ## Closure
-__A _closure_ is a scope kept accessible even after its creator function call is finished.__ It can be created only by a scope from that a function gets _somehow_ out and that function use __identifiers (not theirs values!)__ from the creator scope.
-__The mechanism _closure_ is a consequence of _lexical scoping_ and _functions are objects_.__
+__The _closure_ mechanism is a consequence of _lexical scoping_ and _functions are objects_.__ This mechanism makes possible for a newly created function that gets _somehow_ out from another function to hold the lexical scope access to the surrounding scopes.
+A __closure as thing__ is the scopes attached to a function call and kept alive to let the function call use lexical scope access to these scopes. The identifiers of a closure instance have values just like a called function's parameters are attached to values.
+
+#### 'Closure (mechanism) is the poor man's object (mechanism)'
+Because closure means for the function to have access to state out of its body and arguments like a method which has access to the object's state. But a closure instance is attached to only one function call in contrast to an object instance which can have many functions (called methods).
+
+#### 'The object (mechanism) is the poor man's closure (mechanism)'
+means that in object oriented languages without closures the methods have access to the object's state which is an extra scope, a primitive closure.
+
+This constraint is not true in JavaScript because each function is participated in the closure mechanism even the methods.
+
+# The function in JavaScript
+Differentiate between _function_ and _function call_!
+
+A _function_ has
+* optionally name
+* optionally parameters
+* a lexical scope
+* a body with optionally code to run
+
+The _function call of a function_ has
+* a function
+* arguments (the values of parameters)
+* a 'this' value
+* a closure (lexical scope with concrete values)
+* a return value
+
+A function is a kind of promise draft: I will do something if I'm called. But what this something really means depends very from the inputs at the call time. Functional Programming tries to minimize this gap with explicit input and strong types.
+
+A called function can have input in 3 ways:
+* through its arguments
+* through 'this'
+* through its closure
+
+
+## The JavaScript function is prepared for both Object Oriented and Functional Programming
+but these exclude each other. In Functional Programming the input must be explicit and immutable: it's not allowed to use changeable state from 'this' or the closure. But it's possible to use 'this' and the closure as a kind of partial application.
+
+
 
 ## The five rules of _this binding_
 Preface: __Except the _arrow function rule_ __ the value of 'this' is completely determined at the call-site in run-time, and has nothing to do with the compile time also with _lexical scoping_. That means __the value of 'this' can not be known without seeing the call-site__.
@@ -260,17 +304,5 @@ function Func(){
 They are the ```Func``` object and its ```prototype``` object. Each references the other through a non-enumerable property:
 The prototype object of ```Func``` is referenced by ```Func.prototype``` which references back to the function by its ```constructor``` property.
 
-## Functions
- Function objects are a kind of promise in the common sense: I do something if I'm called. Until that I exists.
-
- Functions are objectified blocks with possible input and output. As a consequence they can be executed after theirs declaration.
-
 ## async/await
 It combines _generators_ and _promises_ in a mechanism, whose syntax hides the generator iterating completely.
-
-
-## The tree pillars of JavaScript
-
-* Reactor pattern
-* Prototypal inheritence
-* Functional programming
