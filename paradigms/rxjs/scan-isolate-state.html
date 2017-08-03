@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>RxJs test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.3.0/Rx.js"></script>
+  </head>
+  <body>
+    <button class='button'>CLick Me!</button>
+    <h4></h4>
+  </body>
+  <script>
+    window.onload = function(){
+      var button = document.querySelector('.button');
+      var label = document.querySelector('h4');
+
+      Rx.Observable.fromEvent(button,'click')
+        .scan(count => count + 1,0)
+        .subscribe(count => {label.textContent = count})
+    }
+  </script>
+</html>

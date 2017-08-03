@@ -9,10 +9,16 @@ It's a kind of cooperative concurrency.
 They give back an iterator at the call of the generator but that doesnt have a syntactical sign.
 The generator function has an own scope: it's a great place to define closure for the running iterator.
 
-Cooperative concurrency
------------------------
-The execution of the function body is partitioned into execution-chunks at the 'yield' expressions
-allowing the Reactor to do something others in-between.
+The iterators run synchronously with the caller context
+-------------------------------------------------------
+Iterators have the same time behavior as functions: synchronously.
+Without this the iteration through an available collection
+would be very strange. We want to keep the semantic of a for loop.
+
+But the iterator mechanism combined with Promises allows us to define
+a very synchronous-looking asyncronous code. That is the
+async/await syntax. That has a asyncronous semantic.
+
 
 The creation and useage are two different lifecycle steps like of an object.
 ----------------------------------------------------------------------------

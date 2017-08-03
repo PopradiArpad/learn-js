@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>RxJs test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.3.0/Rx.js"></script>
+  </head>
+  <body>
+    <button class='button'>CLick Me!</button>
+    <h4></h4>
+  </body>
+  <script>
+    var button = document.querySelector('.button');
+    var label = document.querySelector('h4');
+    // button.addEventListener('dblclick',function(){label.textContent = 'button double clicked';})
+
+    var clickStream = Rx.Observable.fromEvent(button,'click');
+    clickStream.subscribe((e)=>console.log(e));
+
+    // var doubleClickStream1 = clickStream
+    //   .buffer(()=>clickStream.throttle(250))
+    //   .subscribe(()=>console.log('double click 1'));
+
+    var doubleClickStream = clickStream
+      .buffer(()=>clickStream.throttle(250))
+      .map(a=>a.length)
+      .filter(l=>l===2);
+
+    doubleClickStream.subscribe(()=>{
+      label.textContent='double clicked';
+    });
+
+    doubleClickStream
+      .throttle(1000)
+      .subscribe(()=>label.textContent='-');
+
+  </script>
+</html>

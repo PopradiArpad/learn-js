@@ -34,10 +34,13 @@ But you can use 'this' and the closure as a kind of partial application.
 
 ## Functional Programming
 1. Functions are objects (_JavaScript supports it_)
-2. Input is immutable (_No JavaScript support, it must be forced by the programmer_)
+2. Input is immutable (_No JavaScript support, it must be forced by the
+  programmer_)
   means the input data are decoupled from any function execution.
-3. Input is explicit (_No JavaScript support, it must be forced by the programmer_)
-4. Input and output are well typed (_No JavaScript support, and it's often not needed to do something useful_) means the compiler can check the correctness of the input usage.
+3. Output is determined by the input.
+4. Input and output are well typed (_No JavaScript support, and it's
+often not needed to do something useful_) means the compiler can check
+the correctness of the input usage and the type of the output.
 
 Take care that in JavaScript a called function can have input in 3 ways:
 * through its arguments (set/fixed parameters)
@@ -45,23 +48,34 @@ Take care that in JavaScript a called function can have input in 3 ways:
 * through its closure (lexical scope attached to the function call)
 
 
-
 ### The advantages of Functional Programming
 From 1. follows
   * A new level of expressiveness.
 
-From 2. and 3. and 4. follow
-  * Each function can be reasoned about on its own and __let all other functions reason about which use the same input__. So the reasoning is composable. (Anyway that's the reason why the functional programming semantic has been chosen to do Math through space and time.)
-
-From 2. and 3. follow
+From 2. follows
+  * No side effect. No input will be changed regardless where it comes from.
   * Each function is automatically parallizable.
+
+From 3 and 4 follow
+  * Each function can be reasoned about on its own.
+
+From 2. , 3. and 4. follow
+  * Each function can be reasoned about on its own and __let all other
+  functions reason about which use the same input__. So the reasoning
+  is composable. (Anyway that's the reason why the functional
+  programming semantic has been chosen to do Math through space and
+  time. Math uses the lexical scoping too.)
+
+### Pure function
+doesn't pollute its surrounding environment and determined by the input: 2. and 3.
 
 ### Problems with Functional Programming only (Haskell)
 * Missing story-telling capability. The description of the goal of the app, the main players, roles, interactions are much more natural in OOP.
 * Discouraging academic language.
 * Forcing to think in the type system even if its not useful.
-It's like the forced two layer thinking of classical OOP languages where you need
-a class to have an object just for the sake of the language not by a the necessity of the domain.
+It's like the forced two layer thinking of classical OOP languages where
+you need a class to have an object just for the sake of the language not
+by a the necessity of the domain.
 
 ## Problems with Object Orientation
 are arise if it's not combined with Functional Programming. If it concentrates too heavy
