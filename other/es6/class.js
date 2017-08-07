@@ -1,7 +1,7 @@
 /*
 The class modelling is not the natural modelling of JavaScript but possible.
 
-The ES6 'class' is a syntactic sugar above the old class implementing in JavaScript
+The ES6 'class' is mostly a syntactic sugar above the old class implementing in JavaScript
 so it solves only the awkward syntax problem but not
   * the unneeded complications bound to this modelling in JavaScript
   * the lie of 'instanceof'
@@ -31,6 +31,18 @@ class Widget extends Thing {
   // }
 }
 
+//Differences to the old class definitions
+//---------------------------------------
+
+//Can not be called without 'new'
+// Thing.call({}); this is a TypeError
+
+//The functions are not hoisted!
+
+
+
+//instanceof
+//-----------------------
 class Button extends Widget {
   constructor() {
     console.log('Button constructor');
@@ -59,7 +71,13 @@ console.assert(Object.getPrototypeOf(Button.prototype) === Widget.prototype);
 
 
 
-
+//super
+//========
+/*
+A lot of quirks.
+It has different meaning in different places.
+WARNING!
+*/
 
 
 //'super' BINDS SURPRISINGLY IN DECLATATION TIME FOR PERFORMANCE REASONS
