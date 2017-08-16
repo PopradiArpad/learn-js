@@ -1,3 +1,4 @@
+const _ = require('lodash');
 /*
 The class modelling is not the natural modelling of JavaScript but possible.
 
@@ -39,6 +40,7 @@ class Widget extends Thing {
 
 //The functions are not hoisted!
 
+//The class definition and the method calls run in strict mode.
 
 
 //instanceof
@@ -69,6 +71,48 @@ console.assert(Object.getPrototypeOf(Button.prototype) === Widget.prototype);
 // console.log(Object.getOwnPropertyNames(Object.prototype));
 
 
+//Class properties (with the babel transform-class-properties plugin)
+//-------------------------------------------------------------------
+class AClass {
+  constructor(){
+    this.a = 1;
+  }
+
+  //Class properties
+  //are assigned to the instance not to the prototype!
+  instanceProperty = this;
+  method1 = function () {
+    return this;
+  }
+  method2 = () => {
+    return this;
+  }
+
+  //Static class properties
+  //are properties of the constructor function
+  static staticClassProperty = this;
+  static method3 = function () {
+    return this;
+  }
+}
+
+let aclass = new AClass();
+console.assert(Object.getPrototypeOf(aclass).instanceProperty === undefined);
+console.assert(aclass.instanceProperty === aclass);
+
+console.assert(Object.getPrototypeOf(aclass).method1 === undefined);
+console.assert(aclass.method1() === aclass);
+let aclass_method1 = aclass.method1
+console.assert(aclass_method1() === undefined);
+
+console.assert(Object.getPrototypeOf(aclass).method2 === undefined);
+console.assert(aclass_method2() === aclass);
+let aclass_method2 = aclass.method2
+console.assert(aclass.method2() === aclass);
+
+console.assert(aclass.method3 === undefined);
+console.assert(AClass.method3() === AClass);
+console.assert(_.isEqual(AClass.staticClassProperty,{}));//babel bug?
 
 
 //super
