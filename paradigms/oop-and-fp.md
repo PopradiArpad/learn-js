@@ -26,9 +26,8 @@ A called function can have input in 3 ways:
 
 
 ## The JavaScript function is prepared for both Object Oriented and Functional Programming
-but these exclude each other. In Functional Programming the input must be explicit and
-immutable: you are not allowed to use changeable state from 'this' or the closure.
-But you can use 'this' and the closure as a kind of partial application.
+but these exclude each other. In Functional Programming the input must be immutable:
+you are not allowed to use changeable state from 'this' or from the scope.
 
 
 
@@ -36,16 +35,15 @@ But you can use 'this' and the closure as a kind of partial application.
 1. Functions are objects (_JavaScript supports it_)
 2. Input is immutable (_No JavaScript support, it must be forced by the
   programmer_)
-  means the input data are decoupled from any function execution.
 3. Output is determined by the input.
 4. Input and output are well typed (_No JavaScript support, and it's
 often not needed to do something useful_) means the compiler can check
 the correctness of the input usage and the type of the output.
 
 Take care that in JavaScript a called function can have input in 3 ways:
-* through its arguments (set/fixed parameters)
+* through its arguments
 * through 'this'
-* through its closure (lexical scope attached to the function call)
+* through its scope
 
 
 ### The advantages of Functional Programming
@@ -54,7 +52,7 @@ From 1. follows
 
 From 2. follows
   * No side effect. No input will be changed regardless where it comes from.
-  * Each function is automatically parallizable.
+  * Each function is automatically parallelizable.
 
 From 3 and 4 follow
   * Each function can be reasoned about on its own.
@@ -62,7 +60,7 @@ From 3 and 4 follow
 From 2. , 3. and 4. follow
   * Each function can be reasoned about on its own and __let all other
   functions reason about which use the same input__. So the reasoning
-  is composable. (Anyway that's the reason why the functional
+  is composable. (That is the reason why the functional
   programming semantic has been chosen to do Math through space and
   time. Math uses the lexical scoping too.)
 

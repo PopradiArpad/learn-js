@@ -9,6 +9,16 @@
 //   console.log(e);
 // }
 
+//But this function definition works!
+function f() {
+  let x = y;
+};
+
+//Only try it not call without a catch...
+//It would be a ReferenceError of course.
+// f();
+
+
 console.assert(typeof a === 'undefined');//should be 'undeclared'
 
 //assignment to undeclared identifier
