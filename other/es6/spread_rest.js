@@ -1,8 +1,12 @@
 'use strict';
 const _ = require('lodash');
 
+// These operators have sense only within
+// a structure. See that structure too of you look at the operator!!
+
 //rest operator
-//=============
+//The rest operator gathers structure elements in one named structure.
+//===================================================================
 
 //rest of function parameters
 //----------------------------
@@ -30,7 +34,8 @@ console.assert(_.isEqual(z, {a:3,b:4} ));
 
 
 //spread operator
-//==================
+//The spread operator flattens a nested structure.
+//===================================================
 
 //spread any iterable
 //------------------
