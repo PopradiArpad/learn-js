@@ -33,3 +33,19 @@ console.assert(_.isEqual(['_', ...g1(), '_'], ['_',1,2,'_']));
 
 //In function call it spreads the iterables into parameters
 rest1(...[1,2,3,4]);
+
+//----------------------------
+//.babelrc
+// {
+//   "plugins":["babel-plugin-transform-object-rest-spread"],
+// }
+//node -r babel-register -r babel-polyfill spread_rest.js
+var state = {
+  example1: {
+    value: 'count()',
+    value2: 1
+  }
+};
+
+console.log({example1: { value: 'count()', value: 'newvalue' } });
+console.log({example1: { ...state.example1, value: 'newvalue',value2: 2 } });

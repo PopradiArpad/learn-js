@@ -71,8 +71,13 @@ console.assert(Object.getPrototypeOf(Button.prototype) === Widget.prototype);
 // console.log(Object.getOwnPropertyNames(Object.prototype));
 
 
-//Class properties (with the babel transform-class-properties plugin)
+//Class properties
 //-------------------------------------------------------------------
+//.babelrc
+// {
+//   "plugins":["babel-plugin-transform-class-properties"],
+// }
+//node -r babel-register class.js
 class AClass {
   constructor(){
     this.a = 1;
@@ -106,8 +111,8 @@ let aclass_method1 = aclass.method1
 console.assert(aclass_method1() === undefined);
 
 console.assert(Object.getPrototypeOf(aclass).method2 === undefined);
-console.assert(aclass_method2() === aclass);
 let aclass_method2 = aclass.method2
+console.assert(aclass_method2() === aclass);
 console.assert(aclass.method2() === aclass);
 
 console.assert(aclass.method3 === undefined);
