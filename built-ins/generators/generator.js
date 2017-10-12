@@ -131,7 +131,7 @@ console.log();
 
 function* g3(x){
   console.log(`g3 before let yi = (yield) x: ${x}`);
-  let yi = (yield 22);
+  let yi = yield 22;
   console.log(`g3 after let yi = (yield)   yi: ${yi}`);
   let y = x*yi;
 

@@ -175,7 +175,11 @@ console.log(Object.getOwnPropertyDescriptor(o8,'a'));
 //enumerable: true
 //configurable: true
 //----------------------
-//The Array indices are just properties and have property descriptor
+
+//On object is much more a collection of key - property descriptor pairs
+//as of key - value pairs.
+
+//The Array indices are just properties and have property descriptors
 console.log(Object.getOwnPropertyDescriptor(['av1','av2'],0));
 
 //Per default all descriptor characteristics are true

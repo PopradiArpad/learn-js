@@ -75,15 +75,20 @@ It's like the forced two layer thinking of classical OOP languages where
 you need a class to have an object just for the sake of the language not
 by a the necessity of the domain.
 
-## Problems with Object Orientation
+# Problems with Object Orientation
 are arise if it's not combined with Functional Programming. If it concentrates too heavy
 on states forgetting the danger of shared states: possibly unprovable code.
 
-
-### 'Prefer Composition over Inheritance'
+## 'Prefer Composition over Inheritance'
 Composition is the loosest reusing mechanism: it uses an other object intern. That means it must
 know only the used part of its _interface_ and has not to represent it in front of the whole
-application.
+application. __See Possible problems with inheritance__
+### Why is composition better than inheritance?
+* the composed element is private.
+In contrary the inherited base is public.
+* only the interface of the composed element is used.
+In contrary the inherited base is in the prototype chain:
+all its properties/methods can interfere with the base.
 
 
 ## Inheritance in JavaScript
