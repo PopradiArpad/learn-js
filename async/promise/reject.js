@@ -12,3 +12,16 @@ let p2 = Promise.reject(42);
 //unless it's a programming error.
 p1.then(null,()=>{});
 p2.then(null,()=>{});
+
+function returnReject() {
+  return Promise.reject(new Error('problem'));
+}
+
+returnReject().catch(error => {console.log(error.message,'handled');});
+
+//Async functions return promises
+async function asyncReturnReject() {
+  await Promise.reject(new Error('asyncReturnReject'));
+}
+
+asyncReturnReject().catch(error => {console.log(error.message,'handled');});
