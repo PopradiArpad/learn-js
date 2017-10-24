@@ -57,7 +57,7 @@ console.assert(_.isEqual(fp.map(parseInt)(['6', '8', '10']), [6, 8, 10]));
 //Currying allows to set the arguments of a function call in more steps.
 //Currying is a function transformation
 //where the result function has one argument
-//(or simple less arguments then the original function) 
+//(or simple less arguments then the original function)
 //and returns another curried function and so on
 //until the last function which returns the value of the original function
 //with all the substitued arguments.
@@ -180,7 +180,7 @@ console.log(toSlug('JS Cheerleader'));
 //1. try
 //const toSlug2 = input =>
 //   input.split(' ').map(str => str.toLowerCase()).join('-').encodeURIComponent();
-//Can not work: we don't want to monkey path String.prototype
+//Can not work: we don't want to monkey patch String.prototype
 
 //2. try
 // const split = fp.curry((separator,s)=>s.split(separator));
