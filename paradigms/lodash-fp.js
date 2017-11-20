@@ -71,6 +71,7 @@ console.assert(_.isEqual(fp.map(parseInt)(['6', '8', '10']), [6, 8, 10]));
 //
 //Currying and partial application
 //---------------------------------
+//http://2ality.com/2011/09/currying-vs-part-eval.html
 //Similarities are only in the used mechanisms:
 //Both are function transformations.
 //Both use closures.
