@@ -36,6 +36,13 @@ console.assert(typeof notDeclared === 'undefined');//THIS SHOULD THROW A Referen
 let o = {}
 console.log(!! o);
 
+//Object detection (an array is an object)
+function isObject(val){
+  return (
+    typeof val === 'object' &&
+    !! val && // to filter null, because typeof null is 'object'
+  );
+}
 
 //Functions
 //==============
