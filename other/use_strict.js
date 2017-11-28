@@ -1,3 +1,4 @@
+//This must be the first statement
 'use strict';
 /*
   Strict mode is defined in ECMAScript5.
