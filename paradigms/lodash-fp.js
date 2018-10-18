@@ -2,6 +2,9 @@
 const _ = require('lodash');
 const fp = require('lodash/fp');
 
+// https://medium.com/making-internets/why-using-chain-is-a-mistake-9bc1f80d51ba
+// https://github.com/lodash/lodash/wiki/FP-Guide
+
 /*
 What are
   Immutable
@@ -302,3 +305,10 @@ console.log('------');
 
 //Point-free style
 //Function definition without referring to arguments
+
+
+//Composition with fp.compose
+//the pipe goes from right to left
+const add2 = x => x+2;
+const multiple3 = x => x*3;
+console.assert(_.isEqual(fp.compose(add2,multiple3)(5)), 17);
